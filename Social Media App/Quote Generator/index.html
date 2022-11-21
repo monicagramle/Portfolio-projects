@@ -1,0 +1,31 @@
+<button type = "submit" id ="js" class="button" onclick="quote()">
+    Generate a new quote
+</button>
+<p id = "newQuote"></p>
+
+<style>
+    button { background: yellow}
+    p { font-size: '18px'}
+</style>
+
+<script>
+    const endpoint = "https://api.whatdoestrumpthink.com/api/v1/quotes/random";
+    async function quote(){
+        console.log("button was clicked");
+        try {
+            const response = await fetch(endpoint)
+            if(!response.ok){
+                throw Error(response.statusText);
+            }
+            const json = await response.json();
+            displayQuote(json.message);
+        }
+        catch(err){
+            console.log(err);
+            alert("New quote not found")
+        }
+    }
+   function displayQuote(id) {
+    document.getElementById("newQuote").innerHTML = '"' + id + '"';
+   }
+</script>

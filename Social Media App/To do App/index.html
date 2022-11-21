@@ -1,0 +1,24 @@
+<head>
+<h1> This is a TO-DO app</h1>
+</head>
+
+<body>
+    <input type="text" id ="todo"> 
+    <button type="submit" id ="submit" onclick="add()">Add</button>
+     <ul>
+        <li>
+
+        </li>
+     </ul>
+</body>
+
+<script>
+     let list = 
+    document.getElementById("list").innerHTML = list;
+    function add(){
+       let todo = document.getElementById("todo").value;
+       list.value = todo; 
+       console.log(list); 
+       document.getElementById("list").innerHTML = list;
+    }
+</script>
